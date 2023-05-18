@@ -1,0 +1,113 @@
+Name   ->  VASU DESHMUKH
+Emp_id ->  MLI1203
+--------------------------------------
+
+
+Sunday Tasks- 19-FEB-23
+====================
+
+1. Write a shell script to get current date, time, user name and current working directory. 
+
+
+#!/bin/bash
+echo "Current Date:"
+date
+echo "username:"
+whoami
+echo "current directory:"
+pwd
+
+OUTPUT->
+
+$ bash 1task.sh 
+Current Date:
+Tue, Feb 21, 2023  5:59:23 PM
+username:
+Vasu Deshmukh
+current directory:
+/c/Users/Vasu Deshmukh/Desktop/19FEB
+
+===================================================================================================================================================
+2. Write a Shell Script that adds two numbers if provided as the command Line Argument and
+if the two numbers are not entered it outputs an Error Message along with a one-Line of how-to use description.
+
+#!/bin/bash
+read a
+read b
+
+if sum=`expr $a + $b`;
+then
+echo "Total is : $sum"
+else
+echo "Enter an integer not a Non-integer"
+fi
+
+OUTPUT->
+
+$ bash 2task.sh 
+10
+23
+Total is : 33
+===================================================================================================================================================
+3. You needs to print a given Number say 10572, in reverse order using a Shell script such that the input is provided using command Line Argument only.
+If the input data is not provided as Command Line Argument, it should throw and error and should suggest, how to use the script.
+Write the script but before that tell me the algorithm that needs to be implemented here.
+
+
+#!/bin/bash
+read n
+x=0
+y=0
+
+while [ $n -gt 0 ]
+do
+    x=$(( $n % 10 ))
+    y=$(( $y * 10 + $x ))
+    n=$(( $n / 10 ))
+done
+
+echo "Reverse number of entered digit is $y"
+
+OUTPUT->
+
+$ bash 3task.sh 
+144
+Reverse number of entered digit is 441
+
+===================================================================================================================================================
+4. You are supposed to calculate a real number calculation directly from terminal and not any shell script. What will you do (say the real numbers are 10.70 and 6.30)? 
+
+
+echo 10.70 + 6.30 | bc
+
+OUTPUT->
+17.00
+-------------------------
+echo 10.70 - 6.30 | bc
+
+OUTPUT->
+4.40
+-------------------------
+echo 10.70 * 6.30 | bc
+
+OUTPUT->
+67.41
+-------------------------
+echo 10.70 / 6.30 | bc
+
+OUTPUT->
+1
+
+
+===================================================================================================================================================
+
+5. You are supposed to find the value of pi upto 100 places of decimal, what is the easiest way to get the result done.
+
+1st Step to INSTALL pi -> sudo apt install pi
+2ns Step to run ->  pi 100
+
+OUTPUT->
+3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067
+
+
+

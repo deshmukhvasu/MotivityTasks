@@ -1,0 +1,398 @@
+Name   ->  VASU DESHMUKH
+Emp_id ->  MLI1203
+
+======================================================================================================
+#Write a shell script to list all of the directory files in a directory?
+
+#!/bin/bash
+
+for entry in `ls $search_dir`; 
+do
+
+    echo $entry
+
+done
+
+
+OUTPUT->
+
+$ ./2task.sh
+1task.sh
+2task.sh
+3task.sh
+4task.sh
+5task.sh
+6task.sh
+7task.sh
+8task.sh
+9task.sh
+Kulveer.sh
+Kulveer.xlsx
+read.sh
+
+
+======================================================================================================
+#Write a simple script to install any tomcat server?
+
+#!/bin/bash
+
+sudo yum update -y
+sudo yum install httpd -y
+
+======================================================================================================
+# write a shell script using arithmetic operators for adding, multiplication and subtraction of any two numbers?
+
+
+#! /bin/bash
+
+num1=20
+num2=20
+
+echo $((num1 + num2))
+echo $((num1 - num2))
+echo $((num1 * num2))
+echo $((num1 / num2))
+
+
+OUTPUT->
+$ ./5task.sh
+40
+0
+400
+1
+
+
+======================================================================================================
+# This example script prompts the user to enter a month and outputs the number of days.
+# There are three possible answers: 30 days, 31 days, 28 or 29 days for February.
+
+#!/bin/bash
+
+shopt -s nocasematch
+echo "Enter the name of a month."
+read month
+case $month in
+  February)
+echo "There are 28/29 days in $month.";;
+
+  April | June | September | November)
+echo "There are 30 days in $month.";;
+
+  January | March | May | July | August | October | December)
+echo "There are 31 days in $month.";;
+  *)
+
+echo "Unknown month. Please check if you entered the correct month name: $month";;
+esac
+
+OUTPUT->
+
+$ ./6task.sh
+Enter the name of a month.
+april
+There are 30 days in april.
+
+======================================================================================================
+# How will you debug a script if you have made any mistakes in a already written script?    
+
+#!/bin/bash     
+#           -x
+
+
+
+set -x      # from here start debugging
+num1 =10
+num1=20
+
+set +x      # stop here debugging
+echo $((num1 + num2))
+
+$ ./8task.sh
+++ num1 =10
+./8task.sh: line 8: num1: command not found
+++ num1=20
+++ set +x
+20
+
+
+======================================================================================================
+# Script for iterations if-else, for, etc.,?
+
+#!/bin/bash
+
+echo "Enter number1"
+echo "Enter number2"
+read number1
+read number2
+
+if [ $number1 == $number2 ]
+then
+    echo "a is equal to b"
+else
+    echo "a is not equal to b"
+fi
+
+OUTPUT->
+
+$ ./9task.sh
+Enter number1
+Enter number2
+1
+1
+a is equal to b
+
+
+======================================================================================================
+KULVEER TASK->
+
+
+
+#!/bin/bash
+
+
+
+#The script prompts the user to enter the path to the CSV file.
+
+
+
+echo "Enter the file path: " 
+
+read csvpath
+
+
+
+
+
+#Validate the file if its not CSV the script should terminate
+
+
+
+filename="$csvpath"
+
+
+
+if [[ "${filename##*.}" != "csv" ]]; 
+
+then
+
+    
+
+echo -e "It is not a CSV file. Terminating script."
+
+    exit 1
+
+else
+
+echo -e  "File has a .csv extension."
+
+fi
+
+
+
+#The script prompts the user to enter an age range (e.g., "18-25") to filter the results.
+
+#If not in given range expression  script should prompt to enter with an example to enter the range
+
+
+
+echo "Please enter the Age: "
+
+
+
+read num
+
+
+
+if [[ $num -ge 18 && $num -le 25 ]]; 
+
+
+
+then 
+
+
+
+ echo "The number is valid" 
+
+
+
+else 
+
+
+
+ echo "Error! Please"
+
+
+
+fi
+
+
+
+#The script reads the CSV file and extracts the following information for each user.
+
+# Extract the user information from the CSV line
+
+awk -F',' '{print $1}' data.csv
+
+
+
+OUTPUT->
+
+$ ./task.sh 
+Enter the file path:  
+/c/Users/Vasu Deshmukh/Desktop/kulveer/data.csv 
+File has a .csv extension.
+Please enter the Age: 
+10
+Error! Please
+Vasu
+Jay
+Ajay
+Furkhan
+
+======================================================================================================
+Debug18.sh
+
+
+#!/bin/bash
+
+echo "Welcome $USER on $HOSTNAME."
+echo "#######################################################"
+
+FREERAM=$(free -m | grep Mem | awk '{print $4}')
+LOAD=`uptime | awk '{print $9}'`
+ROOTFREE=$(df -h | grep '/dev/sda1' | awk '{print $4}')
+#Reep= "Rore"
+
+echo "#######################################################"
+echo "Available free RAM is $FREERAM MB"
+echo "#######################################################"
+echo "Current Load Average $LOAD"
+echo "#######################################################"
+echo "Free ROOT partiotion size is $ROOTFREE"
+
+
+
+OUTPUT->
+
+Welcome ubuntu on ip-172-31-85-223.
+#######################################################
+#######################################################
+Available free RAM is 243 MB
+#######################################################
+Current Load Average 0.21,
+#######################################################
+Free ROOT partiotion size is
+ubuntu@ip-172-31-85-223:~$
+
+========================================================================================================
+Debug19.sh
+
+#!/bin/bash
+
+
+echo "Enter your skills:"
+read SKILL
+
+echo "Your $SKILL skill is in high Demand in the IT Industry."
+
+read -p ' $USR : ' UR
+read -sp 'Password: ' pas
+echo
+
+echo "Login Successfull: Welcome USER $USR,"
+
+OUTPUT->
+
+$ ./Debug19.sh 
+Enter your skills:
+aws
+Your aws skill is in high Demand in the IT Industry.
+ $USR : UR
+Password: 
+Login Successfull: Welcome USER ,
+
+========================================================================================================
+Debug20.sh
+
+
+#!/bin/bash
+
+read -p "Enter a number: " NUM
+echo
+
+if [ $NUM -gt 100 ]
+then
+   echo "We have entered in IF block."
+   echo "Your Number is greater than 100"
+   echo $DATE
+fi
+echo "Script execution completed successfully."
+
+
+OUTPUT->
+
+$ ./Debug20.sh
+Enter a number: 22
+
+Script execution completed successfully.
+
+
+========================================================================================================
+Debug21.sh
+
+#!/bin/bash
+
+read -p "Enter a number: " NUM
+echo
+
+if [ $NUM -gt 100 ];
+then
+   echo "We have entered in IF block."
+   slee 3
+   echo "Your Number is greater than 100"
+   echo
+   date
+else
+  echo "You have entered number less than 100."
+
+
+
+echo "Script execution completed successfully."
+fi
+
+OUTPUT->
+
+$ ./Debug21.sh
+Enter a number: 10
+
+You have entered number less than 100.
+Script execution completed successfully.
+
+
+========================================================================================================
+Debug22.sh
+
+#!/bin/bash
+
+valve=$( ipconfig | grep -v LOOPBACK | grep -ic mtu )
+
+echo "$valve"
+
+if [ $valve -eq 1 ]
+then
+  cho "1 Active Network Interface found."
+elif [ $valve -gt 1 ]
+then
+  echo "Found Multiple active Interface."
+else
+  echo "No Active interface found."
+fi
+
+OUTPUT->
+
+$ ./Debug22.sh
+0
+No Active interface found.
+
+
+========================================================================================================
